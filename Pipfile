@@ -17,6 +17,7 @@ virtualenv = "==20.2.2"
 virtualenv-clone = "==0.5.4"
 django = "*"
 django-heroku = "*"
+gunicorn = "*"
 
 [dev-packages]
 
