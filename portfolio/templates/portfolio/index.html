@@ -1,9 +1,16 @@
-<!DOCTYPE html>
-<html>
-<body>
-    <p>Hi there!</p>
-    <p>It works!</p>
-    <p>say my name!</p>
-    <p>science!</p>
-</body>
-</html>
+    {% extends "portfolio/base.html" %}
+
+    {% block content %}
+    <main>
+        <h1>{{ title }}</h1>
+        <section>
+            <h2>Current Learning Plan</h2>
+            <h3>Mornings</h3>
+                <p>Learn & train following the process outlined at
+                    <a href="https://programmerspyramid.com/">Programmer's Pyramid</a>.
+                </p>
+            <h3>Afternoons</h3>
+                <p>Develop this site!</p>
+        </section>
+    </main>
+    {% endblock content %}
