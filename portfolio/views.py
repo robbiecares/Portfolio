@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.views import generic
+
+from portfolio.models import Tutorial
 
 
 def index(request):
@@ -31,14 +34,20 @@ def projects(request):
     return render(request, template, context)
 
 
-def tutorials(request):
-    template = 'portfolio/tutorials.html'
+class TutorialDetailView(generic.DetailView):
+    model = Tutorial
 
-    context = {
-        'title': 'Tutorials'
-    }
 
-    return render(request, template, context)
+class TutorialListView(generic.ListView):
+    model = Tutorial
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        # Call the base implementation first to get the context
+        context = super(TutorialListView, self).get_context_data(**kwargs)
+        # Create any data and add it to the context
+        context['title'] = 'Tutorials'
+        return context
+
 
 def journal(request):
     template = 'portfolio/journal.html'

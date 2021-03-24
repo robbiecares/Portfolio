@@ -1,0 +1,32 @@
+    {% extends "portfolio/base.html" %}
+
+    {% block content %}
+    <main>
+        <h1>{{ title }}</h1>
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Status</td>
+<!--                        <td>Completed Units</td>-->
+                        <td>Total Units</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tutorial in tutorial_list %}
+                    <tr>
+                        <td><a href="{% url 'portfolio:tutorial-detail' tutorial.pk %}">{{ tutorial.name }}</a></td>
+                        <td>{{ tutorial.get_status_display }}</td>
+<!--                        <td>0</td>-->
+                        <td>{{ tutorial.units }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+
+
+        </section>
+    </main>
+    {% endblock content %}
