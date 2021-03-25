@@ -4,7 +4,7 @@ from django.urls import reverse
 
 class Tutorial(models.Model):
     name = models.CharField(max_length=100)
-    units = models.IntegerField(default=1)
+    units = models.IntegerField(blank=True, default=None)
     url = models.URLField(blank=True)
 
     tutorial_statuses = [
