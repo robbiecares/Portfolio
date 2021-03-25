@@ -72,8 +72,8 @@ class EntryDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     success_url = '/'
 
     def test_func(self):
-        post = self.get_object()
-        if self.request.user == Entry.author:
+        entry = self.get_object()
+        if self.request.user == entry.author:
             return True
         return False
 

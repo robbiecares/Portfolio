@@ -1,5 +1,9 @@
 {% extends "portfolio/base.html" %}
 {% block content %}
+    {% if user.is_authenticated %}
+    <a class="nav-item nav-link" href="{% url 'journal:entry-create' %}">New Entry</a>
+    {% endif %}
+
     {% for entry in entries %}
         <article class="media content-section">
             <img class="rounded-circle article-img" src ="{{ entry.author.profile.image.url }}">
