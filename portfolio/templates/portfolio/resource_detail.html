@@ -1,0 +1,12 @@
+    {% extends "portfolio/base.html" %}
+
+    {% block content %}
+    <main>
+        <h1>{{ resource.name }}</h1>
+        <p>URL: <a href="{{ tutorial.url }}">{{ resource.url }}</a></p>
+        <section>
+            <p>Status: {{ resource.get_status_display }}</p>
+            <p>Total Units: {{ resource.units }}</p>
+        </section>
+    </main>
+    {% endblock content %}

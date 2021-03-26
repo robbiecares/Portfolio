@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from portfolio.models import Tutorial
+from portfolio.models import Resource
 
-admin.site.register(Tutorial)
+admin.site.register(Resource)

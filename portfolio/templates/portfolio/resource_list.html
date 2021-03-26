@@ -9,17 +9,15 @@
                     <tr>
                         <td>Name</td>
                         <td>Status</td>
-<!--                        <td>Completed Units</td>-->
-                        <td>Total Units</td>
+                        <td>Lessons Learned</td>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for tutorial in tutorial_list %}
+                    {% for resource in resource_list %}
                     <tr>
-                        <td><a href="{% url 'portfolio:tutorial-detail' tutorial.pk %}">{{ tutorial.name }}</a></td>
-                        <td>{{ tutorial.get_status_display }}</td>
-<!--                        <td>0</td>-->
-                        <td>{{ tutorial.units }}</td>
+                        <td><a href="{% url 'portfolio:resource-detail' resource.pk %}">{{ resource.name }}</a></td>
+                        <td>{{ resource.get_status_display }}</td>
+                        <td>{{ resource.lessons_learned }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
