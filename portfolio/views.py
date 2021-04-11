@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 
-from portfolio.models import Resource
+# from portfolio.models import Resource
 
 
 def index(request):
@@ -34,16 +34,16 @@ def projects(request):
     return render(request, template, context)
 
 
-class ResourceDetailView(generic.DetailView):
-    model = Resource
+# class ResourceDetailView(generic.DetailView):
+#     model = Resource
 
 
-class ResourceListView(generic.ListView):
-    model = Resource
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        # Call the base implementation first to get the context
-        context = super(ResourceListView, self).get_context_data(**kwargs)
-        # Create any data and add it to the context
-        context['title'] = 'Resources'
-        return context
+# class ResourceListView(generic.ListView):
+#     model = Resource
+#
+#     def get_context_data(self, *, object_list=None, **kwargs):
+#         # Call the base implementation first to get the context
+#         context = super(ResourceListView, self).get_context_data(**kwargs)
+#         # Create any data and add it to the context
+#         context['title'] = 'Resources'
+#         return context
