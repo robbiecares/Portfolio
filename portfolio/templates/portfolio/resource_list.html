@@ -1,8 +1,8 @@
     {% extends "portfolio/base.html" %}
 
-    {% block content %}
+
     <main>
-        <h1>{{ title }}</h1>
+        {% block content %}
         <section>
             <table>
                 <thead>
@@ -22,9 +22,6 @@
                     {% endfor %}
                 </tbody>
             </table>
-
-
-
         </section>
     </main>
     {% endblock content %}

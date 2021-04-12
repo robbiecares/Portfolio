@@ -3,10 +3,10 @@
     {% block content %}
     <main>
         <h1>{{ resource.name }}</h1>
+        <p>{{ resource.description }}</p>
         <p>URL: <a href="{{ resource.url }}">{{ resource.url }}</a></p>
-        <section>
-            <p>Status: {{ resource.get_status_display }}</p>
-            <p>Total Units: {{ resource.units }}</p>
-        </section>
+        <p>Started: {{ resource.start_date }}</p>
+        <p>Status: {{ resource.get_status_display }}</p>
+        <p>Repository: <a href="{{ resource.repository }}">{{ resource.repository }}</a></p>
     </main>
     {% endblock content %}m

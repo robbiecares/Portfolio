@@ -18,7 +18,9 @@ def about(request):
     template = 'portfolio/about.html'
 
     context = {
-        'title': 'About'
+        'title': 'About',
+        'description': 'This site was created by robbiecares@gmail.com. It will be used to showcase projects he '
+                       'develops and to document his progress as he self-studies to become a software developer.'
     }
 
     return render(request, template, context)

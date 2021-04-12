@@ -27,6 +27,11 @@ class EntryListView(ListView):
     ordering = ['-date_posted']
     paginate_by = 5
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Journal'
+        return context
+
 
 class UserEntryListView(ListView):
     model = Entry
@@ -37,6 +42,7 @@ class UserEntryListView(ListView):
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
         return Entry.objects.filter(author=user).order_by('-date_posted')
+
 
 
 class EntryDetailView(DetailView):
