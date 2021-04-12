@@ -11,7 +11,7 @@ class Resource(models.Model):
         ('c', 'completed'),
     ]
     status = models.CharField(max_length=1, choices=tutorial_statuses, default='s')
-    start_date = models.DateField(null=True)
+    start_date = models.DateField(blank=True, null=True)
     url = models.URLField(blank=True)
     repository = models.URLField(blank=True)
 
