@@ -8,6 +8,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView,
 )
+
 from .models import Entry
 
 
@@ -44,14 +45,15 @@ class UserEntryListView(ListView):
         return Entry.objects.filter(author=user).order_by('-date_posted')
 
 
-
 class EntryDetailView(DetailView):
     model = Entry
 
 
 class EntryCreateView(LoginRequiredMixin, CreateView):
     model = Entry
-    fields = ['title', 'content']
+    template_name = 'journal/entry_form.html'
+    context_object_name = 'entry'
+    fields = ['title', 'activity', 'content']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -68,9 +70,7 @@ class EntryUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def test_func(self):
         entry = self.get_object()
-        if self.request.user == entry.author:
-            return True
-        return False
+        return True if self.request.user == entry.author else False
 
 
 class EntryDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
