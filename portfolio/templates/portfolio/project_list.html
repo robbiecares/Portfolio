@@ -1,0 +1,27 @@
+    {% extends "portfolio/base.html" %}
+
+
+    <main>
+        {% block content %}
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Status</td>
+                        <td>Lessons Learned</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for project in project_list %}
+                    <tr>
+                        <td><a href="{% url 'portfolio:project-detail' project.pk %}">{{ project.name }}</a></td>
+                        <td>{{ project.get_status_display }}</td>
+                        <td>{{ project.lessons_learned }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
+    {% endblock content %}

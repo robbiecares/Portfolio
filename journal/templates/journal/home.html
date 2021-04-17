@@ -14,7 +14,8 @@
                   <small class="text-muted">{{ entry.date_posted |date:"D, M d, Y"  }}</small>
                 </div>
                 <h2><a class="article-title" href="{% url 'journal:entry-detail' entry.id %}">{{ entry.title }}</a></h2>
-            <p class="article-content">{{ entry.content }}</p>
+                <p class="article-content">Topic: {{ entry.topic }}</p>
+                <p class="article-content">{{ entry.content }}</p>
             </div>
         </article>
     {% endfor %}
