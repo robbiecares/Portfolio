@@ -2,6 +2,12 @@
 {% block content %}
 <main>
     <section>
+        <p>I'm interested in learning Python to help me analyze data and develop websites. I'm currently following the
+            "road map" outlined at <a href="https://programmerspyramid.com/">Programmer's Pyramid</a>. Typically, I
+            learn/train in the mornings and work on one of my projects in the afternoons.</p>
+    </section>
+    <section>
+        <h2>Learning Resources</h2>
 <!--        <table>-->
 <!--            <thead>-->
 <!--                <tr>-->
@@ -11,7 +17,7 @@
 <!--                </tr>-->
 <!--            </thead>-->
 <!--            <tbody>-->
-                {% for obj in project_list %}
+                {% for obj in resource_list %}
 <!--                <tr>-->
                     <td><a href="{% url 'portfolio:activity-detail' obj.pk %}">{{ obj.name }}</a></td>
 <!--                    <td>{{ obj.get_status_display }}</td>-->
@@ -20,9 +26,6 @@
                 {% endfor %}
 <!--            </tbody>-->
 <!--        </table>-->
-    </section>
-    <section>
-        <p><a href="https://github.com/robbiecares?tab=repositories">My Github repo</a></p>
     </section>
 </main>
 {% endblock content %}

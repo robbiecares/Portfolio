@@ -1,0 +1,22 @@
+{% extends "portfolio/base.html" %}
+{% block content %}
+<section>
+    <h1>{{ object.name }}</h1>
+    <small><a href="{{ object.url }}">{{ object.url }}</a></small>
+    <p>{{ object.type }}</p>
+    <p>{{ object.description }}</p>
+    <p>Started: {{ object.start_date }}</p>
+    <p>Status: {{ object.get_status_display }}</p>
+    <p>Repository: <a href="{{ object.repository }}">{{ object.repository }}</a></p>
+</section>
+<br>
+<br>
+<section>
+    <h2>Latest Updates</h2>
+    {% if user.is_authenticated %}
+    <a class="nav-item nav-link" href="{% url 'journal:entry-create' %}">New Entry</a>
+    {% endif %}
+    {% include 'journal/entries.html' %}
+</section>
+{% endblock content %}
+

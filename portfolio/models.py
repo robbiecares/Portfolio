@@ -27,8 +27,8 @@ class Activity(models.Model):
 
 class Project(Activity):
     """Represents the details of projects I create."""
-    # plan - a list of the steps I've outlined to complete the project
-    # status - I could include a "idea" status as by subclassing statuses
+    # todo: plan - a list of the steps I've outlined to complete the project
+    # todo: status - I could include a "idea" status as by subclassing statuses
     pass
 
     def get_absolute_url(self):

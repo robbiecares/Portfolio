@@ -1,12 +1,5 @@
-    {% extends "portfolio/base.html" %}
+{% extends "portfolio/project_list.html" %}
 
-    {% block content %}
-    <main>
-        <h1>{{ project.name }}</h1>
-        <p>{{ project.description }}</p>
-        <p>URL: <a href="{{ project.url }}">{{ project.url }}</a></p>
-        <p>Started: {{ project.start_date }}</p>
-        <p>Status: {{ project.get_status_display }}</p>
-        <p>Repository: <a href="{{ project.repository }}">{{ project.repository }}</a></p>
-    </main>
-    {% endblock content %}m
+{% block content %}
+{% include 'portfolio/activity_detail.html' %}
+{% endblock content %}
