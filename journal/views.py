@@ -12,18 +12,18 @@ from django.views.generic import (
 from .models import Entry
 
 
-def home(request):
-    template = 'journal/home.html'
-    context = {
-        'entries': Entry.objects.all(),
-    }
-
-    return render(request, template, context)
+# def home(request):
+#     template = 'journal/index.html'
+#     context = {
+#         'entries': Entry.objects.all(),
+#     }
+#
+#     return render(request, template, context)
 
 
 class EntryListView(ListView):
     model = Entry
-    template_name = 'journal/home.html' # <app>/<model>_<viewtype>.html
+    template_name = 'journal/index.html'  # <app>/<model>_<viewtype>.html
     context_object_name = 'entries'
     ordering = ['-date_posted']
     paginate_by = 5

@@ -1,14 +1,20 @@
 from django.shortcuts import render
 from django.views import generic
 
-from portfolio.models import Resource, Project
+from .models import Resource, Project, Activity
+from journal.models import Entry
 
 
 def index(request):
     template = 'portfolio/index.html'
-
+    projects = Project.objects.filter(name='RunTracker')
+    entries = Entry.objects.all().order_by('-date_posted')[:3]
+    resources = Resource.objects.filter(status='a')
     context = {
-        'title': 'Home'
+        'title': 'Home',
+        'projects': projects,
+        'entries': entries,
+        'resources': resources,
     }
 
     return render(request, template, context)
@@ -26,33 +32,15 @@ def about(request):
     return render(request, template, context)
 
 
-# def projects(request):
-#     template = 'portfolio/projects.html'
-#
-#     context = {
-#         'title': 'Projects'
-#     }
-#
-#     return render(request, template, context)
-
-
-class ResourceDetailView(generic.DetailView):
-    model = Resource
-
-
-class ResourceListView(generic.ListView):
-    model = Resource
+class ActivityDetailView(generic.DetailView):
+    model = Activity
 
     def get_context_data(self, *, object_list=None, **kwargs):
         # Call the base implementation first to get the context
-        context = super(ResourceListView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         # Create any data and add it to the context
-        context['title'] = 'Resources'
+        context['entries'] = self.object.entry_set.all()
         return context
-
-
-class ProjectDetailView(generic.DetailView):
-    model = Project
 
 
 class ProjectListView(generic.ListView):
@@ -64,3 +52,30 @@ class ProjectListView(generic.ListView):
         # Create any data and add it to the context
         context['title'] = 'Projects'
         return context
+
+
+# class ResourceDetailView(generic.DetailView):
+#     model = Resource
+#
+#     def get_context_data(self, *, object_list=None, **kwargs):
+#         # Call the base implementation first to get the context
+#         context = super().get_context_data(**kwargs)
+#         # Create any data and add it to the context
+#         context['entries'] = self.object.entry_set.all()
+#         return context
+
+
+class ResourceListView(generic.ListView):
+    model = Resource
+    template_name = 'portfolio/education.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        # Call the base implementation first to get the context
+        context = super(ResourceListView, self).get_context_data(**kwargs)
+        # Create any data and add it to the context
+        context['title'] = 'Education'
+        return context
+
+
+
+

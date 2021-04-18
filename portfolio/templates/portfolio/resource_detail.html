@@ -1,12 +1,5 @@
-    {% extends "portfolio/base.html" %}
+{% extends "portfolio/base_education.html" %}
 
-    {% block content %}
-    <main>
-        <h1>{{ resource.name }}</h1>
-        <p>{{ resource.description }}</p>
-        <p>URL: <a href="{{ resource.url }}">{{ resource.url }}</a></p>
-        <p>Started: {{ resource.start_date }}</p>
-        <p>Status: {{ resource.get_status_display }}</p>
-        <p>Repository: <a href="{{ resource.repository }}">{{ resource.repository }}</a></p>
-    </main>
-    {% endblock content %}m
+{% block content %}
+{% include 'portfolio/activity_detail.html' %}
+{% endblock content %}
