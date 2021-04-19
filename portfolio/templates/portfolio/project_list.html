@@ -13,7 +13,8 @@
 <!--            <tbody>-->
                 {% for obj in project_list %}
 <!--                <tr>-->
-                    <td><a href="{% url 'portfolio:activity-detail' obj.pk %}">{{ obj.name }}</a></td>
+                        <p><a href="{% url 'portfolio:activity-detail' obj.pk %}">{{ obj.name }}</a></p>
+<!--                    <td><a href="{% url 'portfolio:activity-detail' obj.pk %}">{{ obj.name }}</a></td>-->
 <!--                    <td>{{ obj.get_status_display }}</td>-->
 <!--                    <td>{{ obj.lessons_learned }}</td>-->
 <!--                </tr>-->
