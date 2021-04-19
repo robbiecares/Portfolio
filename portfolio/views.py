@@ -7,7 +7,7 @@ from journal.models import Entry
 
 def index(request):
     template = 'portfolio/index.html'
-    projects = Project.objects.filter(name='RunTracker')
+    projects = Project.objects.filter(status='c')
     entries = Entry.objects.all().order_by('-date_posted')[:3]
     resources = Resource.objects.filter(status='a')
     context = {
@@ -34,12 +34,13 @@ def about(request):
 
 class ActivityDetailView(generic.DetailView):
     model = Activity
+    paginate_by = 1
 
     def get_context_data(self, *, object_list=None, **kwargs):
         # Call the base implementation first to get the context
         context = super().get_context_data(**kwargs)
         # Create any data and add it to the context
-        context['entries'] = self.object.entry_set.all()
+        context['entries'] = self.object.entry_set.all().order_by('-date_posted')
         return context
 
 
