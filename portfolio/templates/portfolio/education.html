@@ -18,8 +18,10 @@
 <!--            </thead>-->
 <!--            <tbody>-->
                 {% for obj in resource_list %}
+                    <p><a href="{% url 'portfolio:activity-detail' obj.pk %}">{{ obj.name }}</a></p>
+
 <!--                <tr>-->
-                    <td><a href="{% url 'portfolio:activity-detail' obj.pk %}">{{ obj.name }}</a></td>
+<!--                    <td><a href="{% url 'portfolio:activity-detail' obj.pk %}">{{ obj.name }}</a></td>-->
 <!--                    <td>{{ obj.get_status_display }}</td>-->
 <!--                    <td>{{ obj.lessons_learned }}</td>-->
 <!--                </tr>-->
