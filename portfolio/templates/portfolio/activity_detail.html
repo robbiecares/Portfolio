@@ -2,12 +2,17 @@
 {% block content %}
 <section>
     <h1>{{ object.name }}</h1>
-    <small><a href="{{ object.url }}">{{ object.url }}</a></small>
-    <p>{{ object.type }}</p>
+    <p><small>Site: <a href="{{ object.host_url }}">{{ object.host_url }}</a></small></p>
+    <p><small>Repo: <a href="{{ object.repository }}">{{ object.repository }}</a></small></p>
     <p>{{ object.description }}</p>
+    <p>{{ object.type }}</p>
+    <h2>Competencies</h2>
+    {% for c in object.competencies.all %}
+        <span>{{ c.name }},</span>
+    {% endfor %}
+    <h2>Details</h2>
     <p>Started: {{ object.start_date }}</p>
     <p>Status: {{ object.get_status_display }}</p>
-    <p>Repository: <a href="{{ object.repository }}">{{ object.repository }}</a></p>
 </section>
 <br>
 <br>

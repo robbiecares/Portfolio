@@ -2,25 +2,14 @@
 {% block content %}
 <main>
     <section>
-<!--        <table>-->
-<!--            <thead>-->
-<!--                <tr>-->
-<!--                    <td>Name</td>-->
-<!--                    <td>Status</td>-->
-<!--                    <td>Lessons Learned</td>-->
-<!--                </tr>-->
-<!--            </thead>-->
-<!--            <tbody>-->
-                {% for obj in project_list %}
-<!--                <tr>-->
-                        <p><a href="{% url 'portfolio:activity-detail' obj.pk %}">{{ obj.name }}</a></p>
-<!--                    <td><a href="{% url 'portfolio:activity-detail' obj.pk %}">{{ obj.name }}</a></td>-->
-<!--                    <td>{{ obj.get_status_display }}</td>-->
-<!--                    <td>{{ obj.lessons_learned }}</td>-->
-<!--                </tr>-->
-                {% endfor %}
-<!--            </tbody>-->
-<!--        </table>-->
+    {% for obj in project_list %}
+        <p><a href="{% url 'portfolio:project-detail' obj.pk %}">{{ obj.name }}</a>
+            {% if obj.host_url %}
+                - <a href="{{ obj.host_url }}">url</a>
+            {% endif %}
+        </p>
+
+    {% endfor %}
     </section>
     <section>
         <p><a href="https://github.com/robbiecares?tab=repositories">My Github repo</a></p>

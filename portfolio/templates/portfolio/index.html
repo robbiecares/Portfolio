@@ -3,11 +3,11 @@
 <main>
     <h2>Featured Projects</h2>
     {% for obj in projects %}
-        <p><a href="{% url 'portfolio:activity-detail' obj.pk %}">{{ obj.name }}</a></p>
+        <p><a href="{% url 'portfolio:project-detail' obj.pk %}">{{ obj.name }}</a></p>
     {% endfor %}
     <h2>Current Learning Resources</h2>
     {% for obj in resources %}
-        <p><a href="{% url 'portfolio:activity-detail' obj.pk %}">{{ obj.name }}</a></p>
+        <p><a href="{% url 'portfolio:resource-detail' obj.pk %}">{{ obj.name }}</a></p>
     {% endfor %}
     <h2>Latest Updates</h2>
     {% include 'journal/entries.html' %}

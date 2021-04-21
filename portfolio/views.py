@@ -31,6 +31,14 @@ def about(request):
 
     return render(request, template, context)
 
+def gallery(request):
+    template = 'portfolio/gallery.html'
+
+    context = {
+        'title': 'Gallery',
+    }
+
+    return render(request, template, context)
 
 class ActivityDetailView(generic.DetailView):
     model = Activity
@@ -55,15 +63,15 @@ class ProjectListView(generic.ListView):
         return context
 
 
-# class ResourceDetailView(generic.DetailView):
-#     model = Resource
-#
-#     def get_context_data(self, *, object_list=None, **kwargs):
-#         # Call the base implementation first to get the context
-#         context = super().get_context_data(**kwargs)
-#         # Create any data and add it to the context
-#         context['entries'] = self.object.entry_set.all()
-#         return context
+class ProjectDetailView(generic.DetailView):
+    model = Project
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        # Call the base implementation first to get the context
+        context = super().get_context_data(**kwargs)
+        # Create any data and add it to the context
+        context['entries'] = self.object.entry_set.all()
+        return context
 
 
 class ResourceListView(generic.ListView):
