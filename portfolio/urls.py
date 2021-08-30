@@ -10,8 +10,8 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('projects/', views.ProjectListView.as_view(), name='projects'),
     path('projects/<int:pk>', views.ProjectDetailView.as_view(), name='project-detail'),
-    # path('projects/<int:pk>', views.ActivityDetailView.as_view(), name='project-detail'),
+    path('activity/<int:pk>', views.ActivityRedirectView.as_view(), name='activity-redirect'),
     path('education/', views.ResourceListView.as_view(), name='education'),
-    path('resources/<int:pk>', views.ActivityDetailView.as_view(), name='resource-detail'),
+    path('resources/<int:pk>', views.ResourceDetailView.as_view(), name='resource-detail'),
     path('gallery/', views.gallery, name='gallery'),
 ]

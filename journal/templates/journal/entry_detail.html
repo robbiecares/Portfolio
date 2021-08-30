@@ -16,7 +16,7 @@
             {% endif %}
             </div>
         <h2 class="article-title">{{ object.title }}</h2>
-        <p class="article-content">Activity: {{ object.activity }}</p>
+        <p class="article-content">Activity: <a href="{% url 'portfolio:activity-redirect' object.activity.pk %}">{{ object.activity }}</a></p>
         <p class="article-content">{{ object.content }}</p>
         </div>
     </article>

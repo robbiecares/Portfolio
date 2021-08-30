@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django2',
+        'NAME': 'portfolio_dev',
         'USER': 'postgres',
         'PASSWORD': os.environ.get('PG_PASS'),
         'HOST': 'localhost',
@@ -140,3 +140,4 @@ django_heroku.settings(locals())
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 LOGIN_REDIRECT_URL = 'portfolio:home'
+

@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
 
-from portfolio.models import Activity
+from portfolio.models import Activity, Project
 
 
 class Entry(models.Model):

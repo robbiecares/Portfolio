@@ -8,26 +8,9 @@
     </section>
     <section>
         <h2>Learning Resources</h2>
-<!--        <table>-->
-<!--            <thead>-->
-<!--                <tr>-->
-<!--                    <td>Name</td>-->
-<!--                    <td>Status</td>-->
-<!--                    <td>Lessons Learned</td>-->
-<!--                </tr>-->
-<!--            </thead>-->
-<!--            <tbody>-->
-                {% for obj in resource_list %}
-                    <p><a href="{% url 'portfolio:activity-detail' obj.pk %}">{{ obj.name }}</a></p>
-
-<!--                <tr>-->
-<!--                    <td><a href="{% url 'portfolio:activity-detail' obj.pk %}">{{ obj.name }}</a></td>-->
-<!--                    <td>{{ obj.get_status_display }}</td>-->
-<!--                    <td>{{ obj.lessons_learned }}</td>-->
-<!--                </tr>-->
-                {% endfor %}
-<!--            </tbody>-->
-<!--        </table>-->
+        {% for obj in resource_list %}
+            <p><a href="{% url 'portfolio:resource-detail' obj.pk %}">{{ obj.name }}</a></p>
+        {% endfor %}
     </section>
 </main>
 {% endblock content %}

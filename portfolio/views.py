@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import generic
 
 from .models import Resource, Project, Activity
@@ -31,6 +31,7 @@ def about(request):
 
     return render(request, template, context)
 
+
 def gallery(request):
     template = 'portfolio/gallery.html'
 
@@ -40,16 +41,17 @@ def gallery(request):
 
     return render(request, template, context)
 
-class ActivityDetailView(generic.DetailView):
-    model = Activity
-    paginate_by = 1
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        # Call the base implementation first to get the context
-        context = super().get_context_data(**kwargs)
-        # Create any data and add it to the context
-        context['entries'] = self.object.entry_set.all().order_by('-date_posted')
-        return context
+class ActivityRedirectView(generic.RedirectView):
+    """Redirect a request for an activity to the appropriate detail page of the activity's sub-class
+     (i.e. project or resource)."""
+
+    def get_redirect_url(self, *arg, **kwargs):
+        act_id = self.kwargs.get('pk')
+        for c in Activity.__subclasses__():
+            if (act := c.objects.filter(pk=act_id)).exists():
+                break
+        return act.first().get_absolute_url()
 
 
 class ProjectListView(generic.ListView):
@@ -86,5 +88,14 @@ class ResourceListView(generic.ListView):
         return context
 
 
+class ResourceDetailView(generic.DetailView):
+    model = Resource
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        # Call the base implementation first to get the context
+        context = super().get_context_data(**kwargs)
+        # Create any data and add it to the context
+        context['entries'] = self.object.entry_set.all()
+        return context
 
 

@@ -1,5 +1,27 @@
-{% extends "portfolio/base_education.html" %}
-
+{% extends "portfolio/education.html" %}
 {% block content %}
-{% include 'portfolio/activity_detail.html' %}
+<section>
+    <h1>{{ object.name }}</h1>
+    <p><small>Site: <a href="{{ object.host_url }}">{{ object.host_url }}</a></small></p>
+    <p><small>Repo: <a href="{{ object.repository }}">{{ object.repository }}</a></small></p>
+    <p>{{ object.description }}</p>
+    <p>{{ object.type }}</p>
+    <h2>Competencies</h2>
+    {% for c in object.competencies.all %}
+        <span>{{ c.name }},</span>
+    {% endfor %}
+    <h2>Details</h2>
+    <p>Started: {{ object.start_date }}</p>
+    <p>Status: {{ object.get_status_display }}</p>
+</section>
+<br>
+<br>
+<section>
+    <h2>Latest Updates</h2>
+    {% if user.is_authenticated %}
+        <a class="nav-item nav-link" href="{% url 'journal:entry-create' %}">New Entry</a>
+    {% endif %}
+    {% include 'journal/entries.html' %}
+</section>
 {% endblock content %}
+
