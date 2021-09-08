@@ -2,6 +2,8 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'portfolio\style.css' %}">
         {% if title %}
             <title>{{ title }} | Rob's site</title>
         {% else %}
@@ -30,8 +32,10 @@
         {% if description %}
             <p>{{ description }}</p>
         {% endif %}
-        {% block content %}
-        {% endblock content %}
+        <div id="content-block">
+            {% block content %}
+            {% endblock content %}
+        </div>
         <hr>
         <footer>
             <a href="mailto: robbiecares@gmail.com" target="_blank">Contact</a> |
