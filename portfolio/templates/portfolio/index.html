@@ -1,15 +1,29 @@
 {% extends "portfolio/base.html" %}
 {% block content %}
-<main>
-    <h2>Featured Projects</h2>
-    {% for obj in projects %}
-        <p><a href="{% url 'portfolio:project-detail' obj.pk %}">{{ obj.name }}</a></p>
-    {% endfor %}
-    <h2>Current Learning Resources</h2>
-    {% for obj in resources %}
-        <p><a href="{% url 'portfolio:resource-detail' obj.pk %}">{{ obj.name }}</a></p>
-    {% endfor %}
-    <h2>Latest Updates</h2>
-    {% include 'journal/entries.html' %}
-</main>
+<section class="col-lg-4 col-md-6">
+    <div>
+        <h2 id="projects">Featured Projects</h2>
+        <ul>
+        {% for obj in projects %}
+            <li><a href="{% url 'portfolio:project-detail' obj.pk %}">{{ obj.name }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+</section>
+<section class="col-lg-4 col-md-6">
+    <div>
+        <h2 id="learning">Current Learning Resources</h2>
+        <ul>
+        {% for obj in resources %}
+            <li><a href="{% url 'portfolio:resource-detail' obj.pk %}">{{ obj.name }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+</section>
+<section class="col-lg-4 col-md-12">
+    <div id='updates'>
+        <h2>Latest Updates</h2>
+        {% include 'journal/entries.html' %}
+    </div>
+</section>
 {% endblock content %}

@@ -8,7 +8,7 @@ body {
 }
 
 header {
-    font-size: 100%;
+    font-size: 8vw;
     background: teal;
 
 }
@@ -42,7 +42,7 @@ h1 {
 
 }
 
-section div {
+section div:not(.media-body, .article-metadata) {
     position: relative;
     background-color: grey;
     border: 1px solid black;
@@ -55,6 +55,7 @@ section div {
 section div ul {
     position: absolute;
     bottom: 0px;
+
 }
 
 section div article {
@@ -63,7 +64,7 @@ section div article {
     margin: 10px;
 }
 
-section article > * {
+section div article > * {
     padding: 8px;
 }
 
@@ -84,6 +85,15 @@ h2 {
 
 }
 
+#projects {
+    background: blue;
+}
+
+#learning {
+    background: green;
+}
+
+
 footer {
     clear: left;
     bottom: 0px;
@@ -98,12 +108,11 @@ footer > * {
 
 }
 
-
 /* Simple Responsive Framework. */
-/*.row {
+.row {
   width: 100%;
 }
-*/
+
 
 /********** Large devices only **********/
 @media (min-width: 992px) {
@@ -148,6 +157,8 @@ footer > * {
     width: 100%;
   }
 }
+
+
 
 /********** Medium devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {

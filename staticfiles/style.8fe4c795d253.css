@@ -1,74 +1,57 @@
+/*
+
+* {
+    box-size: border-box;
+    /* testing to remove brower (i.e. user-agent) defaults
+    margin: 0;
+    padding: 0;
+
+}
+
+main {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+}
+}
+
+main > div {
+    /* border: solid;
+    margin: 10px;
+}
+
+section {
+    border: solid;
+    border-width: 1px;
+}
+
+#updates {
+    width: 30%;
+}
+
+*/
+
 /********** Base styles **********/
 * {
   box-sizing: border-box;
 }
 
-body {
-    margin: 0px;
-}
-
-header {
-    font-size: 100%;
-    background: teal;
-
-}
-
-nav {
-    background: grey;
-
-}
-
-nav ul {
-    display: flex;
-    justify-content: left;
-    list-style-type:none;
-    border: 3px solid black;
-    margin: 0px;
-    padding-left: 10px;
-
-}
-
-nav ul li {
-    font-size: 16px;
-    margin: 5px;
-    padding-inline-start: 10px;
-}
-
 h1 {
   margin-bottom: 15px;
-  text-align: center;
-  font-size: 175%;
-
 
 }
 
-section div {
+section {
     position: relative;
     background-color: grey;
     border: 1px solid black;
+    width: 90%;
     height: 150px;
     margin: 10px;
     font-family: Helvetica;
+    color: white;
 
-}
-
-section div ul {
-    position: absolute;
-    bottom: 0px;
-}
-
-section div article {
-    background: coral;
-    border: 1px solid black;
-    margin: 10px;
-}
-
-section article > * {
-    padding: 8px;
-}
-
-#updates {
-    height: 100%;
 }
 
 h2 {
@@ -80,27 +63,27 @@ h2 {
     right: 0px;
     margin: 0px;
     padding: 2px;
-    font-size: 125%;
+
+}
+
+p {
+
+}
+
+ul {
+    position: absolute;
+    bottom: 0px;
 
 }
 
 footer {
-    clear: left;
-    bottom: 0px;
     display: flex;
     justify-content: center;
-    border-top: 1px solid black;
-
 }
-
-footer > * {
-    margin: 5px;
-
-}
-
 
 /* Simple Responsive Framework. */
-/*.row {
+/*
+.row {
   width: 100%;
 }
 */
@@ -109,7 +92,7 @@ footer > * {
 @media (min-width: 992px) {
   .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
     float: left;
-
+    border: 1px solid black;
   }
   .col-lg-1 {
     width: 8.33%;
@@ -153,6 +136,7 @@ footer > * {
 @media (min-width: 768px) and (max-width: 991px) {
   .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
     float: left;
+    border: 1px solid black;
   }
   .col-md-1 {
     width: 8.33%;

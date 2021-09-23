@@ -1,5 +1,7 @@
 {% block content %}
 {% for entry in entries %}
+{% load static %}
+<!--    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">-->
     <article class="media content-section">
         <img class="rounded-circle article-img" src ="{{ entry.author.profile.image.url }}">
         <div class="media-body">
@@ -7,7 +9,7 @@
 <!--                  <a class="mr-2" href="{% url 'journal:user-entries' entry.author.username %}">{{ entry.author }}</a>-->
               <small class="text-muted">{{ entry.date_posted |date:"D, M d, Y"  }}</small>
             </div>
-            <h2><a class="article-title" href="{% url 'journal:entry-detail' entry.id %}">{{ entry.title }}</a></h2>
+            <h3><a class="article-title" href="{% url 'journal:entry-detail' entry.id %}">{{ entry.title }}</a></h3>
             <p class="article-content">Activity: {{ entry.activity }}</p>
             <p class="article-content">{{ entry.content|truncatewords:30 }}</p>
         </div>
